@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+{% include '_head.html' %}
+</head>
+
+<body>
+  <div id="content">
+    
+    <header>
+        {% include '_header.html' %}
+    </header>
+
+    <main>
+        <div id="home-grid">
+
+            {% if show_dice_tiles == True or show_all_tiles == True %}
+            <button onclick="document.location='/roll-dice/'" class="home-tile dice-tile">
+                <h2>Single Die</h2>
+                <p>Roll a single six sided die<br></p>
+                <img src="/static/home-icons/die.svg" class="home-icon">
+            </button>
+
+            <button onclick="document.location='/roll-dice/custom/'" class="home-tile dice-tile">
+                <h2>Custom Dice Roll</h2>
+                <p>Roll up to one thousand dice with as many as a hundred faces each</p>
+                <img src="/static/home-icons/dice.svg" class="home-icon">
+            </button>
+            
+            {%endif%}
+
+            {% if show_coin_tiles == True or show_all_tiles == True %}
+            
+            <button onclick="document.location='/toss-coin/'" class="home-tile coin-tile">
+                <h2>Flip A Coin</h2>
+                <p>Flip a single coin<br></p>
+                <img src="/static/home-icons/coin.svg" class="home-icon">
+            </button>
+
+            <button onclick="document.location='/toss-coin/custom/'" class="home-tile coin-tile">
+                <h2>Custom Coin Toss</h2>
+                <p>Flip a bunch of coins</p>
+                <img src="/static/home-icons/coins.svg" class="home-icon">
+            </button>
+
+            {%endif%}
+
+            {% if show_8_ball_tiles == True or show_all_tiles == True %}
+            <button onclick="document.location='/magic-8-ball/'" class="home-tile 8-ball-tile">
+                <h2>Magic 8-Ball</h2>
+                <p>Ask a yes-or-no question<br></p>
+                <img src="/static/home-icons/magic-8-ball.svg" class="home-icon">
+            </button>
+
+            {%endif%}
+
+            {% if show_rng_tiles == True or show_all_tiles == True %}
+
+            <button onclick="document.location='/random-numbers/'" class="home-tile rng-tile">
+                <h2>Number Generator</h2>
+                <p>Generate one or more random numbers<br></p>
+                <img src="/static/home-icons/rng.svg" class="home-icon">
+            </button>
+
+            {%endif%}
+
+
+        </div>
+      
+
+    </main>
+
+    <footer>
+
+            {% include '_footer.html' %}
+
+        
+    </footer>
+
+  </div>
+{% include '_scripts.html' %}
+</body>
+</html>

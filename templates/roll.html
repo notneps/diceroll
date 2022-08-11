@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+  {% include '_head.html' %}
+</head>
+
+<body>
+  <div id="content">
+    
+    <header>
+      {% include '_header.html' %}
+    </header>
+
+    <main>
+
+        <div id="rolls">
+        
+        {# PART 1 (REPORT) #}
+        
+        {# SINGLE ROLLS #}
+        
+        {% if roll_type == 'roll-dice-home'%}
+            <p class="single-report">You rolled: {{ single_roll }}</p>
+
+        {% elif roll_type == 'toss-coin-home'%}
+
+            {% if single_toss == 'heads' %}
+                <p class="single-report">You got: HEADS</p>
+            {% elif single_toss == 'tails' %}
+                <p class="single-report">You got: TAILS</p>
+            {% endif %}
+
+        {% elif roll_type == 'toss-coin-home'%}
+            <h1>
+            toss coin
+            </h1>
+        
+        {# REPORT: MULTIPLE DICE #}
+
+        {% elif roll_type in [ 'six-sided-dice', 'twelve-sided-dice', 'custom-dice' ] %}
+            <p class="roll-report">
+                Dice: {{ page_dice_type }}-sided<br>
+                Number of Dice: {{ page_roll_count }}<br>
+                Roll Total: {{ page_roll_total }}
+            </p>
+                
+        {% elif roll_type == 'heads-tails-coin-toss' %}
+            <p class="roll-report">
+                Coin Tosses: {{ page_toss_count }}<br>
+                Heads: {{ page_heads_count }}<br>
+                Tails: {{ page_tails_count }}
+            </p>
+          
+        {% elif roll_type == 'heads-tails-edge-coin-toss' %}
+            <p class="roll-report">
+                Coin Tosses: {{ page_toss_count }}<br>
+                Heads: {{ page_heads_count }}<br>
+                Tails: {{ page_tails_count }}<br>
+                Edge: {{ page_edge_count }}
+            </p>
+          
+            
+            <p class="statistic">"<a href="https://ui.adsabs.harvard.edu/abs/1993PhRvE..48.2547M/abstract" rel="nofollow" target="_blank" class="statistic">Extrapolations based on the model suggest that<br>
+              the probability of an American nickel landing on edge<br>
+              is approximately 1 in 6000 tosses.</a>"</p>
+            
+
+        {% endif %}
+
+{# PART 2 (IMAGES/ICONS/CONTENT) #}
+
+    {# SINGLE DIE ROLL #}
+
+        {% if roll_type == 'roll-dice-home' %}
+            <img src="/static/dice/six-sided-white/{{ single_roll }}.svg" alt="dice: {{ single_roll }}" class="single-dice">
+
+    {# SINGLE COIN TOSS #}
+
+        {% elif roll_type == 'toss-coin-home' %}
+            <img src="/static/dice/coins/{{ single_toss }}.svg" alt="coin: {{ single_toss }}" class="single-coin">
+
+    {# SINGLE MAGIC 8 BALL #}
+
+        {% elif roll_type == 'magic-8-ball' %}
+            <div class="magic-8-ball-container">          
+                <a href="/magic-8-ball/" class="magic-8-ball-link">
+                  <img src="/static/dice/magic-8-ball/magic-8-ball.svg" class="magic-8-ball-img">
+                </a>
+                <br>
+                <a href="/magic-8-ball/" class="magic-8-ball-link">
+                  <span class="magic-8-ball-message">{{ page_message }}</span>
+                </a>
+            </div>
+
+    {# MULTIPLE DICE #}
+
+        {% elif roll_type == 'six-sided-dice' %}        
+            {% for roll in page_roll_list %}
+                <img src="/static/dice/six-sided-white/{{ roll }}.svg" alt="dice: {{ roll }}" class="dice">
+            {% endfor %}
+
+        {% elif roll_type == 'twelve-sided-dice' %}
+            {% for roll in page_roll_list %}
+                <img src="/static/dice/twelve-sided-white/{{ roll }}.svg" alt="dice: {{ roll }}" class="dice">
+            {% endfor %}
+        
+        {% elif roll_type == 'custom-dice' %}
+            {% for roll in page_roll_list %}
+                <span class="custom-dice">
+                    {{ roll }}
+                </span>                
+            {% endfor %}
+            
+    {# MULTIPLE COINS #}
+
+        {% elif roll_type in [ 'heads-tails-coin-toss', 'heads-tails-edge-coin-toss' ] %}
+            {% for toss in page_toss_list %}
+                <img src="/static/dice/coins/{{ toss }}.svg" alt="coin: {{ toss }}" class="coin">
+            {% endfor %}
+        
+        
+        {% endif %}
+        <br>
+        {% if roll_type in ['roll-dice-home', 'six-sided-dice', 'twelve-sided-dice', 'custom-dice' ] %}
+            <button onclick="ReloadPage()" class="go-again-button">Roll Again</button>
+        {% elif roll_type in [ 'toss-coin-home', 'heads-tails-coin-toss', 'heads-tails-edge-coin-toss'] %}
+            <button onclick="ReloadPage()" class="go-again-button">Toss Again</button>
+        {% elif roll_type in [ 'toss-coin-home', 'magic-8-ball' ] %}
+            <button onclick="ReloadPage()" class="go-again-button">Ask Again</button>
+        {% endif %}
+          
+        {% if roll_type == 'rng' %}
+          <div class="generated-numbers-wrapper">
+            <ul class="generated-numbers">
+            {% for number in numbers %}
+              <li>{{ number }}</li>
+            {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+          
+        </div>
+      
+{# PART 3 (FORM) #}
+        
+        <div class="new-roll-form">
+        {% if roll_type in ['six-sided-dice', 'twelve-sided-dice', 'custom-dice' ]%}
+          {% include "_custom-dice-form.html" %}
+          
+        {% elif roll_type in [ 'heads-tails-coin-toss', 'heads-tails-edge-coin-toss' ]%}
+          {% include "_custom-coin-toss-form.html" %}
+          
+        {% elif roll_type in [ 'rng' ]%}
+          {% include "_rng-form.html" %}
+        
+        {% endif%}
+        </div>
+      
+        {% if roll_type in ['roll-dice-home', 'six-sided-dice', 'twelve-sided-dice', 'custom-dice','toss-coin-home', 'heads-tails-coin-toss', 'magic-8-ball' ] %}
+        <p class="timestamp">Timestamp: {{ timestamp }} UTC</p>
+        {% endif%}
+      
+    </main>
+
+    <footer>
+        {% include '_footer.html' %}
+    </footer>
+
+  </div>
+{% include '_scripts.html' %}
+</body>
+</html>

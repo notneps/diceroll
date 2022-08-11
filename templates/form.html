@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+{% include '_head.html' %}
+</head>
+
+<body>
+  <div id="content">
+    
+    <header>
+        {% include '_header.html' %}
+    </header>
+
+    <main>
+
+        <div id="form">
+            
+            {% if form == 'custom-dice' %}
+                {% include "_custom-dice-form.html" %}
+          
+            {% elif form == 'custom-coin-toss' %}
+                {% include "_custom-coin-toss-form.html" %}
+          
+            {% elif form == 'rng' %}
+                {% include "_rng-form.html" %}
+            
+            {% endif %}
+        </div>
+
+    </main>
+
+    <footer>
+        {% include '_footer.html' %}        
+    </footer>
+
+  </div>
+{% include '_scripts.html' %}
+</body>
+</html>
