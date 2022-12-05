@@ -1,0 +1,111 @@
+
+<form action="/roll-dice/custom/" method="POST" class="custom-dice-form">
+  <h2>Custom Dice Roll</h2>
+  <label for="dice-type" id="dice-type-label">Dice type:</label>  
+  <select id="dice-type" name="dice-type">
+    <option value="2-sided">two-sided</option>
+    <option value="3-sided">three-sided</option>
+    <option value="4-sided">four-sided</option>
+    <option value="5-sided">five-sided</option>
+    <option value="six-sided" selected>six-sided (D6)</option>
+    <option value="7-sided">seven-sided</option>
+    <option value="8-sided">eight-sided</option>
+    <option value="9-sided">nine-sided</option>
+    <option value="10-sided">ten-sided</option>
+    <option value="11-sided">eleven-sided</option>
+    <option value="twelve-sided">twelve-sided (D12)</option>
+    <option value="13-sided">thirteen-sided</option>
+    <option value="14-sided">fourteen-sided</option>
+    <option value="15-sided">fifteen-sided</option>
+    <option value="16-sided">sixteen-sided</option>
+    <option value="17-sided">seventeen-sided</option>
+    <option value="18-sided">eighteen-sided</option>
+    <option value="19-sided">nineteen-sided</option>
+    <option value="20-sided">twenty-sided</option>
+    <option value="21-sided">twenty-one-sided</option>
+    <option value="22-sided">twenty-two-sided</option>
+    <option value="23-sided">twenty-three-sided</option>
+    <option value="24-sided">twenty-four-sided</option>
+    <option value="25-sided">twenty-five-sided</option>
+    <option value="26-sided">twenty-six-sided</option>
+    <option value="27-sided">twenty-seven-sided</option>
+    <option value="28-sided">twenty-eight-sided</option>
+    <option value="29-sided">twenty-nine-sided</option>
+    <option value="30-sided">thirty-sided</option>
+    <option value="31-sided">thirty-one-sided</option>
+    <option value="32-sided">thirty-two-sided</option>
+    <option value="33-sided">thirty-three-sided</option>
+    <option value="34-sided">thirty-four-sided</option>
+    <option value="35-sided">thirty-five-sided</option>
+    <option value="36-sided">thirty-six-sided</option>
+    <option value="37-sided">thirty-seven-sided</option>
+    <option value="38-sided">thirty-eight-sided</option>
+    <option value="39-sided">thirty-nine-sided</option>
+    <option value="40-sided">forty-sided</option>
+    <option value="41-sided">forty-one-sided</option>
+    <option value="42-sided">forty-two-sided</option>
+    <option value="43-sided">forty-three-sided</option>
+    <option value="44-sided">forty-four-sided</option>
+    <option value="45-sided">forty-five-sided</option>
+    <option value="46-sided">forty-six-sided</option>
+    <option value="47-sided">forty-seven-sided</option>
+    <option value="48-sided">forty-eight-sided</option>
+    <option value="49-sided">forty-nine-sided</option>
+    <option value="50-sided">fifty-sided</option>
+    <option value="51-sided">fifty-one-sided</option>
+    <option value="52-sided">fifty-two-sided</option>
+    <option value="53-sided">fifty-three-sided</option>
+    <option value="54-sided">fifty-four-sided</option>
+    <option value="55-sided">fifty-five-sided</option>
+    <option value="56-sided">fifty-six-sided</option>
+    <option value="57-sided">fifty-seven-sided</option>
+    <option value="58-sided">fifty-eight-sided</option>
+    <option value="59-sided">fifty-nine-sided</option>
+    <option value="60-sided">sixty-sided</option>
+    <option value="61-sided">sixty-one-sided</option>
+    <option value="62-sided">sixty-two-sided</option>
+    <option value="63-sided">sixty-three-sided</option>
+    <option value="64-sided">sixty-four-sided</option>
+    <option value="65-sided">sixty-five-sided</option>
+    <option value="66-sided">sixty-six-sided</option>
+    <option value="67-sided">sixty-seven-sided</option>
+    <option value="68-sided">sixty-eight-sided</option>
+    <option value="69-sided">sixty-nine-sided</option>
+    <option value="70-sided">seventy-sided</option>
+    <option value="71-sided">seventy-one-sided</option>
+    <option value="72-sided">seventy-two-sided</option>
+    <option value="73-sided">seventy-three-sided</option>
+    <option value="74-sided">seventy-four-sided</option>
+    <option value="75-sided">seventy-five-sided</option>
+    <option value="76-sided">seventy-six-sided</option>
+    <option value="77-sided">seventy-seven-sided</option>
+    <option value="78-sided">seventy-eight-sided</option>
+    <option value="79-sided">seventy-nine-sided</option>
+    <option value="80-sided">eighty-sided</option>
+    <option value="81-sided">eighty-one-sided</option>
+    <option value="82-sided">eighty-two-sided</option>
+    <option value="83-sided">eighty-three-sided</option>
+    <option value="84-sided">eighty-four-sided</option>
+    <option value="85-sided">eighty-five-sided</option>
+    <option value="86-sided">eighty-six-sided</option>
+    <option value="87-sided">eighty-seven-sided</option>
+    <option value="88-sided">eighty-eight-sided</option>
+    <option value="89-sided">eighty-nine-sided</option>
+    <option value="90-sided">ninety-sided</option>
+    <option value="91-sided">ninety-one-sided</option>
+    <option value="92-sided">ninety-two-sided</option>
+    <option value="93-sided">ninety-three-sided</option>
+    <option value="94-sided">ninety-four-sided</option>
+    <option value="95-sided">ninety-five-sided</option>
+    <option value="96-sided">ninety-six-sided</option>
+    <option value="97-sided">ninety-seven-sided</option>
+    <option value="98-sided">ninety-eight-sided</option>
+    <option value="99-sided">ninety-nine-sided</option>
+    <option value="100-sided">hundred-sided</option>
+  </select>
+  <br>
+  <label for="no-of-dice" id="no-of-dice-label">No. of dice:</label>
+  <input type="number" id="no-of-dice" name="no-of-dice" min="1" max="1000" value="2">
+  <br>
+  <input type="submit" id="submit-custom-dice" class="form-submit-button" value="Roll">
+</form>

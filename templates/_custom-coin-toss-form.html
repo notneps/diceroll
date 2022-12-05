@@ -1,0 +1,13 @@
+
+<form action="/toss-coin/custom/" method="POST" class="custom-coin-toss-form">
+  <h2>Custom Coin Toss</h2>
+  <label for="toss-type">Toss Type:</label>  
+  <select id="toss-type" name="toss-type">
+    <option value="no-edge" selected>heads/tails</option>
+    <option value="with-edge">heads/tails/edge</option>
+  </select>
+  <label for="number-of-times-coin-toss">Number of times:</label>  
+  <input type="number" id="number-of-times-coin-toss" name="number-of-times-coin-toss" min="1" max="1000" value="2">
+  <br>
+  <input type="submit" id="submit-custom-coin-toss" class="form-submit-button" value="Toss">
+</form>

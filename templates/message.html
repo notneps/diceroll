@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+  {% include '_head.html' %}
+</head>
+
+<body>
+  <div id="content">
+    
+    <header>
+        {% include '_header.html' %}
+    </header>
+
+    <main>
+        <section id="message-section">
+          <img class="page-img" src="{{ page_img_src }}">
+          <h2 class="page-headline">{{ page_headline }}</h2>
+          <p class="page-message">{{ page_message }}</p>
+          <button onclick="goBack()">Go Back</button>
+        </section>
+    </main>
+
+    <footer>
+        {% include '_footer.html' %}
+    </footer>
+
+  </div>
+{% include '_scripts.html' %}
+</body>
+</html>

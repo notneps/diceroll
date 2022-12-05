@@ -1,0 +1,22 @@
+
+<script>
+// toggle topnav
+function TopNavToggle() {
+    var x = document.getElementById("topnavElement");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+ 
+// re-roll button
+function ReloadPage() {
+    window.location.reload(false); 
+}
+
+// go back button
+function goBack() {
+    window.history.back();
+}
+</script>
